@@ -1,0 +1,39 @@
+<?php
+session_start();
+// Try to get username from GET, then SESSION, fallback to Admin
+$username = isset($_GET['username']) ? $_GET['username'] : (isset($_SESSION['username']) ? $_SESSION['username'] : 'Admin');
+$role = ($username === 'Admin') ? 'admin' : 'student';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+
+    <script src="helpers/goBack.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="style/tables.css">
+</head>
+<body>
+    <!-- JS variables for goBack.js -->
+    <script>
+        var currentUsername = "<?php echo htmlspecialchars($username); ?>";
+        var currentRole = "<?php echo htmlspecialchars($role); ?>";
+        // For debugging:
+        // console.log('USERNAME:', currentUsername);
+        // console.log('ROLE:', currentRole);
+    </script>
+    <div class="main" id="results">
+        <div class="container-wrapper">
+        <button id="back" onclick="goBack()">Επιστροφή</button>
+        <?php
+            include 'display_results.php';
+        ?>
+
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,513 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%ΑΠΟ ΕΔΩ ΚΑΙ ΚΑΤΩ ΜΠΑΙΝΟΥΝ ΟΙ ΕΡΩΤΗΣΕΙΣ. ΚΑΘΕ ΕΡΩΤΗΣΗ ΑΝΗΚΕΙ ΣΕ ΜΙΑ ΟΜΑΔΑ (π.χ. basics, ercardinality κλπ) 
+%%%% ΤΟ ΟΝΟΜΑ ΤΗΣ ΟΠΟΙΑΣ ΔΙΝΕΤΑΙ ΣΤΟ \element{}
+
+\element{basics}{
+
+%1
+\begin{question}{01}    
+  Σε αντίθεση με μια σχεσιακή ΒΔ, μια \emph{αντικειμενοσχεσιακή} βάση δεδομένων είναι ένα σύνολο από .... 
+  \begin{choiceshoriz}
+    \correctchoice{οντότητες}\scoring{10}
+    \wrongchoice{πίνακες}\scoring{5}     
+    \wrongchoice{εγγραφές}\scoring{0}
+    \wrongchoice{συναρτήσεις}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{basics}{
+%2
+\begin{question}{02}    
+  Ο όρος ...... χρησιμοποιείται για να αναφερθούμε σε μια στήλη ενός πίνακα που οι τιμές της αναφέρονται σε στήλη κάποιου άλλου πίνακα.
+  \begin{choiceshoriz}
+    \correctchoice{ξένο κλειδί}\scoring{10}   
+    \wrongchoice{πλειάδα}\scoring{0}
+    \wrongchoice{πρωτεύον κλειδί}\scoring{5}
+    \wrongchoice{περιορισμός}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{basics}{
+%3
+\begin{question}{03} 
+Κάθε γνώρισμα σε μια σχέση, έχει ένα σύνολο από επιτρεπτές τιμές που ονομάζονται......
+  \begin{choiceshoriz}
+    \correctchoice{πεδίο ορισμού.}\scoring{10} 
+    \wrongchoice{συσχετίσεις.}\scoring{0} 
+    \wrongchoice{περιορισμοί.}\scoring{5}    
+    \wrongchoice{σχήμα.}\scoring{0} 
+  \end{choiceshoriz}
+\end{question}
+%-------------------
+}
+\element{basics}{
+%4
+\begin{question}{04}    
+Οι πλειάδες μιας σχέσης έχουν ...... σειρά.
+  \begin{choiceshoriz}
+    \correctchoice{οποιαδήποτε}\scoring{10} 
+    \wrongchoice{πάντοτε την ίδια}\scoring{0}      
+    \wrongchoice{ταξινομημένη}\scoring{0} 
+    \wrongchoice{ορισμένη από το χρήστη}\scoring{5} 
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ercardinality}{
+%5a
+\begin{question}{05a}    
+  Τι δηλώνει ένα ξένο κλειδί από το γνώρισμα a της R(a,b) στο a της S(a,c,d);
+
+  \begin{choices}
+    \correctchoice{Ότι οι τιμές του a στην S είναι μοναδικές και είναι οι μόνες επιτρεπτές τιμές για το a στην R (μαζί με τη null.}\scoring{10} 
+    \wrongchoice{Ότι οι επιτρεπτές τιμές για το a στην R είναι οι τιμές που υπάρχουν στην S(a).}\scoring{5}      
+    \wrongchoice{Ότι οι τιμές του a στην R είναι μοναδικές ή null.}\scoring{0} 
+    \wrongchoice{Ότι ο τύπος του a στην R είναι ίδιος ή γενικότερος από τον τύπο του a στην S.}\scoring{0} 
+  \end{choices}
+\end{question}
+}
+
+\element{ercardinality}{
+%5b
+\begin{question}{05b}    
+  Τι δηλώνει ένα πρωτεύον κλειδί στο γνώρισμα a της R(a,b);
+  \begin{choices}
+    \correctchoice{Ότι οι τιμές του a στην R είναι μοναδικές και όχι null.}\scoring{10} 
+    \wrongchoice{Ότι οι τιμές του a στην R είναι μοναδικές ή null.}\scoring{0}     
+    \wrongchoice{Ότι μόνο το γνώρισμα a είναι μοναδικό στην R.}\scoring{0}
+    \wrongchoice{Ότι κάθε άλλο ξένο κλειδί πρέπει να αναφέρεται στο R(a).}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{ercardinality}{
+%5c
+\begin{question}{05c}    
+ Τι δηλώνει ένα σύνθετο ξένο κλειδί από τα γνωρίσματα a,b της R(a,b,c) στα a,b της S(a,b,d);
+  \begin{choices}
+   \correctchoice{Ότι οι τιμές του a,b στην S είναι μοναδικές και οι επιτρεπτές τιμές για το a,b στην R είναι οι τιμές που υπάρχουν στην S(a,b) ή οι <null,null>.}\scoring{10} 
+    \wrongchoice{Ότι οι επιτρεπτές τιμές για το a στην R είναι οι τιμές που υπάρχουν στην S(a) και για το b στην R αντίστοιχα οι τιμές της S(b).}\scoring{0}      
+    \wrongchoice{Ότι πιθανά το a,b είναι κλειδί στην S.}\scoring{5} 
+    \wrongchoice{Ότι η R σχετίζεται με μια σχέση Ν:Μ με την S.}\scoring{0} 
+  \end{choices}
+\end{question}
+}
+
+\element{entityrelationshipdegree}{
+%6
+\begin{question}{06a}    
+  Πώς αποτυπώνουμε μια συσχέτιση βαθμού 4;
+  \begin{choices}
+    \correctchoice{Με επιπλέον πίνακα που συγκεντρώνει ως ξένα κλειδιά τα πρωτεύοντα κλειδιά των τεσσάρων οντοτήτων.}\scoring{10} 
+    \wrongchoice{Με ένα πίνακα 4x4.} \scoring{0}     
+    \wrongchoice{Με ένα σύνθετο ξένο κλειδί.} \scoring{0} 
+    \wrongchoice{Την αποσυνθέτω σε συσχετίσεις μικρότερου βαθμού.}\scoring{5} 
+  \end{choices}
+\end{question}
+}
+\element{entityrelationshipdegree}{
+%6
+\begin{question}{06b}    
+  Πώς αποτυπώνουμε μια συσχέτιση βαθμού Ν;
+  \begin{choices}
+    \correctchoice{Με επιπλέον πίνακα που συγκεντρώνει ως ξένα κλειδιά τα πρωτεύοντα κλειδιά των Ν οντοτήτων.}\scoring{10} 
+    \wrongchoice{Με ένα πίνακα που θα περιέχει Ν πλειάδες.} \scoring{0}     
+    \wrongchoice{Με ένα σύνθετο ξένο κλειδί.} \scoring{0} 
+    \wrongchoice{Την αποσυνθέτω σε συσχετίσεις μικρότερου βαθμού.}\scoring{5} 
+  \end{choices}
+\end{question}
+}
+
+
+
+\element{entityrelationshipinherit}{
+%7
+\begin{question}{07a}    
+  Πώς αποτυπώνουμε μια ολική εξειδίκευση της οντότητας Εργαζόμενος σε Έμμισθο και Ωρομίσθιο, όταν η μόνη τους διαφορά είναι ο μισθός ο οποίος στη μία περίπτωση είναι με το μήνα και στην άλλη με την ώρα;
+  \begin{choices}
+    \correctchoice{Με μια σχέση Εργαζόμενος και 2 επιπλέον στήλες <Μισθός, ΤύποςΜισθού>.}\scoring{10} 
+    \wrongchoice{Με δύο σχέσεις για Έμμισθο και Ωρομίσθιο αντίστοιχα. Η σχέση Έμμισθος θα έχει στήλες <ΕργID,Μισθός>.}\scoring{0}     
+    \wrongchoice{Με τρεις σχέσεις. Μία για κάθε οντότητα.}\scoring{5}
+    \wrongchoice{Με μια σχέση Εργαζόμενος για όλους τους Έμμισθους και μια επιπλέον για τους Ωρομίσθιους με στήλες <ΕργID,Μισθός>.}\scoring{0} 
+  \end{choices}
+\end{question}
+
+}
+
+\element{entityrelationshipinherit}{
+%7
+\begin{question}{07b}    
+  Πώς αποτυπώνουμε μια μερική εξειδίκευση της οντότητας Εργαζόμενος σε Τεχνικό και Μηχανικό, όταν οι Τεχνικοί έχουν Βαθμό ενώ οι Μηχανικοί Ειδικότητα;
+  \begin{choices}
+    \correctchoice{Με τρεις σχέσεις. Μία για κάθε οντότητα. Ο Εργαζόμενος με τα πεδία του, οι Τεχνικός,Μηχανικός με ένα ξένο κλειδί ΕργID και το επιπλέον γνώρισμα που τους αντιστοιχεί. }\scoring{10} 
+    \wrongchoice{Με μια σχέση Εργαζόμενος και 2 επιπλέον στήλες <Τεχνικός, Μηχανικός>.} \scoring{5}    
+    \wrongchoice{Με δύο πίνακες, έναν για τους τεχνικούς και έναν για τους μηχανικούς με όλα τα γνωρίσματα του εργαζόμενου ο καθένας και το επιπλέον γνώρισμα αντίστοιχα.}\scoring{0}
+    \wrongchoice{Με τον Εργαζόμενο και έναν δεύτερο πίνακα Ειδικευμένοι με όλες τις στήλες και 2 επιπλέον.}\scoring{0}
+  \end{choices}
+\end{question}
+
+}
+
+
+\element{attributes}{
+%8
+\begin{question}{08a}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα σύνθετο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Το αναλύουμε σε απλά γνωρίσματα και προσθέτουμε στη σχέση Α τις αντίστοιχες στήλες.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το σύνθετο γνώρισμα ως στήλη.}  \scoring{0}   
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Object.}\scoring{0}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{attributes}{
+%8
+\begin{question}{08b}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα απλό μονότιμο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Προσθέτουμε μια στήλη στο σχετικό πίνακα.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με τόσες στήλες όσες αντιστοιχούν στο γνώρισμα.}  \scoring{0}   
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το μονότιμο γνώρισμα ως στήλη.}\scoring{0}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+
+\element{attributes}{
+%8
+\begin{question}{08c}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα σύνθετο πλειότιμο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και προσθέτουμε στον πίνακα τόσες στήλες όσες αντιστοιχούν στο σύνθετο γνώρισμα.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με τόσες στήλες όσες αντιστοιχούν στο γνώρισμα.}  \scoring{0}   
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το σύνθετο γνώρισμα ως στήλη.}\scoring{5}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+
+
+\element{relationalalgebra}{
+%11
+\begin{question}{11}    
+  Τι κάνουν οι τελεστές ANY, SOME, exam;
+  \begin{choices}
+    \correctchoice{Ακολουθούν μια συνθήκη ισότητας ή ανισότητας και εμπεριέχουν μια λίστα πλειάδων. Δέχονται ως είσοδο μια λίστα πλειάδων και συγκρίνουν κάθε μία από αυτές ως προς τη συνθήκη με τη φωλιασμένη λίστα.}\scoring{10}
+    \wrongchoice{Εφαρμόζονται σε μια στήλη ενός πίνακα και επιστρέφουν όλες ή ορισμένες από τις πλειάδες του.} \scoring{0}
+    \wrongchoice{Είναι τελεστές συνάθροισης. Καθορίζουν σε ποιες πλειάδες θα εφαρμοστεί μια συνθήκη.}\scoring{0}
+    \wrongchoice{Είναι λογικοί τελεστές.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{relationalalgebra}{
+
+%12
+\begin{question}{12}    
+   Με ποιο τρόπο είναι σωστό να συνδυάσουμε δεδομένα από δύο πίνακες R1(b,e), R2(a,c,d);
+  \begin{choiceshoriz}
+    \correctchoice{Με cartesian product.}\scoring{10}
+    \wrongchoice{Με join στο c.} \scoring{0}
+    \wrongchoice{Με intersection.}\scoring{0}
+    \wrongchoice{Με φωλιασμένα ερωτήματα.}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{relationalalgebra}{
+
+%13
+\begin{question}{13}    
+   Ποια πράξη της σχεσιακής άλγεβρας επιλέγει τα γνωρίσματα που θα εμφανίζονται στο τελικό αποτέλεσμα;
+  \begin{choiceshoriz}
+    \correctchoice{Προβολή π.}\scoring{10}
+    \wrongchoice{Συνένωση JOIN.} \scoring{0}
+    \wrongchoice{Συναροιση SUM.}\scoring{0}
+    \wrongchoice{SELECT.}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{relationalalgebra}{
+
+%14
+\begin{question}{14}    
+   Ποια πράξη της σχεσιακής άλγεβρας επιλέγει τις πλειάδες που υπάρχουν μόνο στο πρώτο από τα δύο σύνολα αποτελεσμάτων;
+  \begin{choiceshoriz}
+    \correctchoice{Αφαίρεση}\scoring{10}
+    \wrongchoice{Ένωση} \scoring{0}
+    \wrongchoice{Union}\scoring{0}
+    \wrongchoice{Τομή}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+
+
+}
+
+\element{relationalalg}{
+%15a
+\begin{question}{15a}    
+   Όταν μια εσωτερική συνένωση δύο πινάκων δεν εντοπίσει γραμμές που ταιριάζουν, τι μπορούμε να δοκιμάσουμε για να φέρουμε όλες τις γραμμές κάθε πίνακα;
+  \begin{choiceshoriz}
+    \correctchoice{full outer join}\scoring{10}
+    \wrongchoice{inner join}     \scoring{0}
+    \wrongchoice{outer join}\scoring{5}
+    \wrongchoice{right outer join}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}\element{relationalalg}{
+
+%15b
+\begin{question}{15b}    
+   Όταν μια εσωτερική συνένωση δύο πινάκων δεν εντοπίσει γραμμές που ταιριάζουν, τι μπορούμε να δοκιμάσουμε για να φέρουμε όλες τις γραμμές του δεύτερου πίνακα;
+  \begin{choiceshoriz}
+    \correctchoice{right outer join}\scoring{10}
+    \wrongchoice{inner join}     \scoring{0}
+    \wrongchoice{left outer join}\scoring{5}
+    \wrongchoice{join right}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+
+}\element{relationalalg}{
+
+%15c
+\begin{question}{15c}    
+   Ποια συνένωση δύο πινάκων εντοπίζει μόνο γραμμές που ταιριάζουν μεταξύ των πινάκων;
+  \begin{choiceshoriz}
+    \correctchoice{natural join}\scoring{10}
+    \wrongchoice{left outer join}   \scoring{0}  
+    \wrongchoice{right outer join}\scoring{0}
+    \wrongchoice{join}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+
+}
+
+\element{sqlabstract}{
+%16
+\begin{question}{a16}    
+   Έστω ότι έχετε τις σχέσεις R(a,b) και S(b,c), όπου το γνώρισμα b αποτελεί κοινό γνώρισμα στις δύο σχέσεις. Τι ισχύει για τα ακόλουθα ερωτήματα: 
+\begin{center}[]
+\begin{tabular}{|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Q1:     SELECT a\\ FROM R NATURAL JOIN S\\ GROUP BY a\\ HAVING count(*) < 2;\end{tabular} & \begin{tabular}[c]{@{}l@{}}Q2:   SELECT a\\ FROM R \\ WHERE b NOT IN (\\ SELECT s1.b \\ FROM S s1, S s2\\ WHERE s1.b=s2.b AND s1.c<>2.c);\end{tabular} \\ \hline
+\end{tabular}
+\end{center}
+  \begin{choices}
+    \correctchoice{Το αποτέλεσμα την $Q_1$ περιέχεται πάντα στο αποτέλεσμα της $Q_2$}\scoring{10}
+    \wrongchoice{Οι $Q_1$ και $Q_2$ παράγουν το ίδιο αποτέλεσμα} \scoring{0}    
+    \wrongchoice{Το αποτέλεσμα την $Q_2$ περιέχεται πάντα στο αποτέλεσμα της $Q_1$}\scoring{0}
+    \wrongchoice{Οι $Q_1$ και $Q_2$ παράγουν διαφορετικό αποτέλεσμα}\scoring{2}
+  \end{choices}
+\end{question}
+}
+\element{sqlabstract}{
+%16
+\begin{question}{a17}    
+   Έστω ότι έχετε τις σχέσεις R(a,b) και S(c). Τι ισχύει για τα ακόλουθα ερωτήματα: 
+\begin{center}[]
+\begin{tabular}{|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Q1:     SELECT a\\ FROM R \\ WHERE R.b > exam (SELECT c FROM S);\end{tabular} & \begin{tabular}[c]{@{}l@{}}Q2:   SELECT a\\ FROM R \\ WHERE R.b > ANY (SELECT c FROM S)\end{tabular} \\ \hline
+
+\end{tabular}
+\end{center}
+  \begin{choices}
+    \correctchoice{Το αποτέλεσμα την $Q_1$ περιέχεται πάντα στο αποτέλεσμα της $Q_2$}\scoring{10}
+    \wrongchoice{Οι $Q_1$ και $Q_2$ παράγουν το ίδιο αποτέλεσμα} \scoring{0}    
+    \wrongchoice{Το αποτέλεσμα την $Q_2$ περιέχεται πάντα στο αποτέλεσμα της $Q_1$}\scoring{0}
+    \wrongchoice{Οι $Q_1$ και $Q_2$ παράγουν διαφορετικό αποτέλεσμα}\scoring{2}
+  \end{choices}
+\end{question}
+}
+\element{sqlabstract}{
+%16
+\begin{question}{a18}    
+   Έστω ότι έχετε τη σχέση R(x). Τι ισχύει για τα ακόλουθα ερωτήματα: 
+\begin{center}[]
+\begin{tabular}{|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}Q1:     SELECT a\\ FROM R rr\\ WHERE NOT EXISTS (\\ SELECT * FROM R WHERE a > rr.a)\end{tabular} & \begin{tabular}[c]{@{}l@{}}Q2:   SELECT max(a) FROM R;\end{tabular} \\ \hline
+\end{tabular}
+\end{center}
+  \begin{choices}
+    \correctchoice{Οι $Q_1$ και $Q_2$ παράγουν το ίδιο αποτέλεσμα}\scoring{10}
+    \wrongchoice{Το αποτέλεσμα την $Q_1$ περιέχεται πάντα στο αποτέλεσμα της $Q_2$} \scoring{0}    
+    \wrongchoice{Το αποτέλεσμα την $Q_2$ περιέχεται πάντα στο αποτέλεσμα της $Q_1$}\scoring{0}
+    \wrongchoice{Οι $Q_1$ και $Q_2$ παράγουν διαφορετικό αποτέλεσμα}\scoring{0}
+  \end{choices}
+\end{question}
+}
+\element{sql}{
+%16
+\begin{question}{16}    
+   Πώς διαγράφουμε όλα τα περιεχόμενα του πίνακα EMPLOYEE;
+  \begin{choices}
+    \correctchoice{DELETE FROM EMPLOYEE;}\scoring{10}
+    \wrongchoice{DELETE * FROM EMPLOYEE;} \scoring{0}    
+    \wrongchoice{FORMAT EMPLOYEE;}\scoring{0}
+    \wrongchoice{DROP TABLE EMPLOYEE;}\scoring{5}
+  \end{choices}
+\end{question}
+
+}
+
+% \element{sql}{
+% %17
+% \begin{question}{17}    
+%    Πώς διαγράφω το τηλέφωνο (PHONE) ενός συγκεκριμένου employee για να διασφαλίσω το απόρρητό;
+%   \begin{choices}
+%     \correctchoice{UPDATE EMPLOYEE SET PHONE=NULL WHERE EMPLOYEEID='XYZ1234';}\scoring{10}
+%     \wrongchoice{UPDATE EMPLOYEE SET PHONE=-1;} \scoring{0}    
+%     \wrongchoice{DELETE PHONE FROM EMPLOYEE WHERE EMPLOYEEID='XYZ1234';}\scoring{0}
+%     \wrongchoice{DELETE FROM EMPLOYEE WHERE EMPLOYEEID='XYZ1234';}\scoring{5}
+%   \end{choices}
+% \end{question}
+% }
+
+
+
+\element{sql}{
+%20
+\begin{question}{20}    
+   Ποιο λάθος έχει το παρακάτω ερώτημα; SELECT * FROM EMPLOYEE GROUP BY DEPARTMENT HAVING SALARY$>$MAX(SALARY);
+  \begin{choices}
+    \correctchoice{To MAX(SALARY) δεν μπορεί να εφαρμοστεί στο σήμειο αυτό}\scoring{10}
+    \wrongchoice{Θέλει WHERE αντί για HAVING}     \scoring{0}
+    \wrongchoice{To HAVING θέλει sum(SALARY)}\scoring{0}
+    \wrongchoice{Πρέπει να χρησιμοποιήσω count(*) στο SELECT}\scoring{0}
+  \end{choices}
+\end{question}
+
+}
+
+\element{sql}{
+%20
+\begin{question}{21}    
+   Ποιο λάθος έχει το παρακάτω ερώτημα; SELECT sum(salary),lastname FROM EMPLOYEE GROUP BY ssn,lastname;
+  \begin{choices}
+    \correctchoice{Κανένα.}\scoring{10}
+    \wrongchoice{Το GROUP BY πρέπει να γίνει στο lastname μόνο}     \scoring{5} 
+    \wrongchoice{To sum(salary) δεν μπορεί να εμφανίζεται στο SELECT}\scoring{0}
+    \wrongchoice{Πρέπει να χρησιμοποιήσω count(salary) στο SELECT}\scoring{0}
+  \end{choices}
+\end{question}
+
+}
+
+\element{sql}{
+%22
+\begin{question}{22}    
+   Πώς μπορώ να ταξινομήσω με φθίνουσα σειρά μισθού τους υπαλλήλους και ταυτόχρονα να εξασφαλίσω ότι θα εμφανίσω μόνο όσους έχουν μισθό;
+  \begin{choices}
+    \correctchoice{...WHERE salary is not null ORDER BY salary DESC;}\scoring{10}
+    \wrongchoice{...WHERE salary is not null ORDER BY salary;}     \scoring{5}
+    \wrongchoice{...WHERE salary $>$ 0 SORT BY salary DESC;}\scoring{0}
+    \wrongchoice{...HAVING salary ORDER BY salary DESC;}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{sql}{
+
+%23
+\begin{question}{23}
+   Τι κάνω αν θέλω να βρω ποιοι υπάλληλοι έχουν προσληφθεί πριν το διευθυντή του τμήματος στο οποίο εργάζονται;
+    \begin{choices}
+    \correctchoice{Κάνω join τον employee στο deptnumber με ένα view που επιστρέφει την ημερομηνία πρόσληψης του διευθυντή σε κάθε τμήμα.}\scoring{10}
+    \wrongchoice{Χρησιμοποιώ nested select για να βρώ την ημερομηνία πρόσληψης του διευθυντή σε κάθε τμήμα.}  \scoring{5}
+    \wrongchoice{Ταξινομώ τον πίνακα με αύξουσα σειρά ημερομηνίας πρόσληψης και επιστρέφω τις πρώτες μισές εγγραφές}\scoring{0}
+    \wrongchoice{Ταξινομώ τον πίνακα με αύξουσα σειρά ημερομηνίας πρόσληψης και επιστρέφω τις δεύτερες μισές εγγραφές}\scoring{0}
+   \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%24
+\begin{question}{24}
+Πώς μπορώ να αλλάξω ένα πεδίο από υποχρεωτικό σε μη υποχρεωτικό;
+  \begin{choices}
+    \correctchoice{Με χρήση της alter table}\scoring{10}
+    \wrongchoice{Με χρήση της modify table}     \scoring{0}
+    \wrongchoice{Με χρήση της update column}\scoring{0}
+    \wrongchoice{Διαγράφω και ξαναφτιάχνω σωστά τον πίνακα}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+
+\element{sql}{
+
+%26
+\begin{question}{26}
+   Τι επιστρέφει το ακόλουθο ερώτημα: SELECT * FROM EMPLOYEE WHERE SALARY $<$ SOME (1000,1300,1500);
+  \begin{choices}
+    \correctchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1500.}\scoring{10}
+    \wrongchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1000.}     \scoring{0}
+    \wrongchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1000,1300 ή 1500.}\scoring{5}
+    \wrongchoice{Τους υπαλλήλους που έχουν μισθό πάνω από 1500.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+
+
+%%%%% ΑΠΟ ΕΔΩ ΚΑΙ ΚΑΤΩ ΕΙΝΑΙ ΟΙ ΟΔΗΓΙΕΣ ΓΙΑ ΝΑ ΦΤΙΑΧΤΕΙ ΕΝΑ ΤΕΣΤ.
+%%%%%   ΦΤΙΑΧΝΕΤΑΙ ΕΝΑ ΑΔΕΙΟ group ΜΕ ΟΝΟΜΑ exam ΚΑΙ ΣΕ ΑΥΤΟ ΠΡΟΣΘΕΤΟΥΜΕ ΕΡΩΤΗΣΕΙΣ ΕΠΙΛΕΚΤΙΚΑ ΑΠΟ ΤΑ ΔΙΑΦΟΡΑ group.
+
+\element{exam}{
+}
+
+\onecopy{1}{    
+
+\cleargroup{exam}
+
+ \shufflegroup{basics}
+\copygroup{basics}{exam}
+
+\shufflegroup{ercardinality}
+\copygroup[1]{ercardinality}{exam}
+
+
+ \shufflegroup{entityrelationshipdegree}
+\copygroup[1]{entityrelationshipdegree}{exam}
+
+ \shufflegroup{entityrelationshipinherit}
+\copygroup[1]{entityrelationshipinherit}{exam}
+
+ \shufflegroup{attributes}
+\copygroup[1]{attributes}{exam}
+
+
+ \shufflegroup{relationalalgebra}
+\copygroup{relationalalgebra}{exam}
+
+\shufflegroup{relationalalg}
+\copygroup[1]{relationalalg}{exam}
+
+ \shufflegroup{sqlabstract}
+\copygroup{sqlabstract}{exam}
+
+ \shufflegroup{sql}
+\copygroup[2]{sql}{exam}
+
+\shufflegroup{exam}
+
+\insertgroup{exam}
+
+}
+
+
+
+
+}
+
+\end{document}
+

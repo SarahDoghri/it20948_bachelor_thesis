@@ -1,0 +1,99 @@
+body {
+  font-family: 'Lato', sans-serif;
+    color: #202020;
+    position: relative;
+    padding-top: 20px;
+}
+
+
+a#back {
+  border: none;
+  padding: 12px 20px;
+  background-color: transparent;
+  color: #008CBA;
+  font-size: 14px;
+}
+
+a#back:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+form {
+  margin-top: 40px;
+}
+
+button, form input[type="submit"] {
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: #008CBA;
+    color: #FFF;
+    font-size: .85rem;
+}
+
+button, form input[type="submit"]:hover {
+    cursor: pointer;
+}
+
+button#back {
+    border: none;
+    padding: 12px 20px;
+    background-color: transparent;
+    color: #008CBA;
+}
+
+button#back:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+p{
+  /* display: none; */
+}
+  
+table{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  overflow: hidden;
+}
+
+#results table {
+  margin-top: 40px;
+}
+table td, th{
+  /* border-top: 1px solid #ECF0F1; */
+  padding: 10px;
+}
+
+td{
+  border-left: 1px solid #ECF0F1;
+  border-right: 1px solid #ECF0F1;
+}
+
+th{
+  background-color: #000;
+}
+
+tr:nth-of-type(even) td{
+  background-color: lighten(#4ECDC4, 35%);
+}
+
+tr.disabled {
+  background-color: #f1cfcf;
+  opacity: .8;
+}
+
+tr.passed {
+  background-color: #95ebe7;
+}
+tr.failed {
+  background-color: #f1cfcf;
+}
+
+th {
+  color: #FFF;
+}
+  
+

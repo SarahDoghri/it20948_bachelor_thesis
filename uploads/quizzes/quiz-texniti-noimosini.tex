@@ -1,0 +1,255 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{enumitem}
+
+\begin{document}
+
+\element{ai}{
+%1
+\begin{question}{1}
+Ποια από τις παρακάτω μεθόδους χρησιμοποιείται για την εκπαίδευση ενός επιβλεπόμενου μοντέλου μηχανικής μάθησης;
+  \begin{choices}
+    \correctchoice{Χρήση εκπαιδευτικού συνόλου με ετικέτες}\scoring{10}
+    \wrongchoice{Αναζήτηση χωρίς δεδομένα}\scoring{0}
+    \wrongchoice{Ενίσχυση τυχαίας αναπαραγωγής}\scoring{0}
+    \wrongchoice{Εξαγωγή χαρακτηριστικών χωρίς επίβλεψη}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%2a
+\begin{question}{2a}    
+Ποια τεχνική χρησιμοποιείται για την αποφυγή υπερπροσαρμογής (overfitting) σε ένα νευρωνικό δίκτυο;
+  \begin{choiceshoriz}
+    \correctchoice{Dropout}\scoring{10}
+    \wrongchoice{Gradient ascent}\scoring{0}
+    \wrongchoice{Χρήση μεγάλου learning rate}\scoring{5}
+    \wrongchoice{Αύξηση του αριθμού των εποχών}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%2b
+\begin{question}{2b}    
+Ποια από τις παρακάτω μεθόδους είναι κατάλληλη για μη επιβλεπόμενη μάθηση;
+  \begin{choiceshoriz}
+    \correctchoice{Ομαδοποίηση (clustering)}\scoring{10}
+    \wrongchoice{Λογιστική παλινδρόμηση}\scoring{0}  
+    \wrongchoice{Random forest}\scoring{0}
+    \wrongchoice{Γραμμική παλινδρόμηση}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%3
+\begin{question}{3}    
+Ποια είναι η βασική διαφορά μεταξύ supervised και unsupervised learning;
+  \begin{choiceshoriz}
+    \correctchoice{Η ύπαρξη ετικετών στα δεδομένα εκπαίδευσης}\scoring{10}
+    \wrongchoice{Η χρήση νευρωνικών δικτύων}\scoring{0}
+    \wrongchoice{Η χρήση μεγάλων συνόλων δεδομένων}\scoring{0}
+    \wrongchoice{Η ανάγκη για προκαταρκτική εξαγωγή χαρακτηριστικών}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%4
+\begin{question}{4}    
+Ποια από τις παρακάτω είναι ευρετική μέθοδος αναζήτησης;
+  \begin{choiceshoriz}
+    \correctchoice{A*}\scoring{10}
+    \wrongchoice{Breadth-first search}\scoring{0}
+    \wrongchoice{Depth-first search}\scoring{0}
+    \wrongchoice{Random walk}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%5a
+\begin{question}{5a}    
+Τι είναι το perceptron;
+  \begin{choices}
+    \correctchoice{Ένα απλό μοντέλο τεχνητού νευρώνα για δυαδική ταξινόμηση}\scoring{10}
+    \wrongchoice{Μέθοδος ομαδοποίησης δεδομένων}\scoring{0}   
+    \wrongchoice{Αλγόριθμος αναζήτησης σε γράφους}\scoring{0}
+    \wrongchoice{Μέθοδος ενίσχυσης}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%5b
+\begin{question}{5b}    
+Ποια είναι η βασική λειτουργία της συνάρτησης ενεργοποίησης (activation function) σε ένα νευρωνικό δίκτυο;
+  \begin{choices}
+    \correctchoice{Εισάγει μη γραμμικότητα στο δίκτυο}\scoring{10}
+    \wrongchoice{Αυξάνει το learning rate}\scoring{0}   
+    \wrongchoice{Μειώνει το overfitting}\scoring{0}
+    \wrongchoice{Κανονικοποιεί τα δεδομένα εισόδου}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%5c
+\begin{question}{5c}    
+Ποια από τις παρακάτω τεχνικές χρησιμοποιείται για τη μείωση της διάστασης των δεδομένων;
+  \begin{choices}
+    \correctchoice{Principal Component Analysis (PCA)}\scoring{10}
+    \wrongchoice{K-means clustering}\scoring{0}   
+    \wrongchoice{Decision trees}\scoring{0}
+    \wrongchoice{Gradient boosting}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%6a
+\begin{question}{6a}    
+Τι είναι το reinforcement learning;
+  \begin{choices}
+    \correctchoice{Μάθηση μέσω αλληλεπίδρασης με το περιβάλλον και λήψης ανταμοιβών ή ποινών}\scoring{10} 
+    \wrongchoice{Εκπαίδευση με εποπτευόμενα δεδομένα}\scoring{0}     
+    \wrongchoice{Ομαδοποίηση χωρίς ετικέτες}\scoring{5}
+    \wrongchoice{Εξαγωγή χαρακτηριστικών από εικόνες}\scoring{0} 
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%6b
+\begin{question}{6b}    
+Ποια είναι η διαφορά μεταξύ deep learning και παραδοσιακών αλγορίθμων μηχανικής μάθησης;
+  \begin{choices}
+    \correctchoice{Το deep learning χρησιμοποιεί πολυεπίπεδα νευρωνικά δίκτυα για την εξαγωγή χαρακτηριστικών}\scoring{10} 
+    \wrongchoice{Το deep learning απαιτεί λιγότερα δεδομένα εκπαίδευσης}\scoring{0}    
+    \wrongchoice{Οι παραδοσιακοί αλγόριθμοι έχουν πάντα καλύτερη απόδοση}\scoring{0}
+    \wrongchoice{Το deep learning δεν απαιτεί υπολογιστική ισχύ}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%7
+\begin{question}{7}    
+Ο όρος ...... αναφέρεται στη διαδικασία κατά την οποία ένα μοντέλο μαθαίνει να γενικεύει από τα δεδομένα εκπαίδευσης.
+  \begin{choiceshoriz}
+    \correctchoice{εκπαίδευση (training)}\scoring{10}   
+    \wrongchoice{δοκιμή (testing)}\scoring{0}
+    \wrongchoice{εξαγωγή χαρακτηριστικών}\scoring{5}
+    \wrongchoice{κανονικοποίηση}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%8
+\begin{question}{8}    
+Τα δεδομένα εισόδου σε ένα νευρωνικό δίκτυο έχουν ...... διάσταση.
+  \begin{choiceshoriz}
+    \correctchoice{οποιαδήποτε}\scoring{10} 
+    \wrongchoice{πάντοτε την ίδια}\scoring{0}      
+    \wrongchoice{ταξινομημένη}\scoring{0} 
+    \wrongchoice{ορισμένη από το χρήστη}\scoring{5} 
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{ai}{
+%9
+\begin{question}{9}
+Ποια από τις παρακάτω μεθόδους χρησιμοποιείται για την αξιολόγηση της απόδοσης ενός μοντέλου;
+ \begin{choices}
+   \correctchoice{Διασταυρούμενη επικύρωση (cross-validation)}\scoring{10}
+   \wrongchoice{Αύξηση του learning rate}\scoring{0}
+   \wrongchoice{Επαναληπτική εκπαίδευση χωρίς επικύρωση}\scoring{5}
+   \wrongchoice{Χρήση τυχαίων δεδομένων}\scoring{0}
+ \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%10
+\begin{question}{10}
+Πώς ονομάζεται το πρόβλημα όπου ένα σύστημα τεχνητής νοημοσύνης αποδίδει υπερβολικά καλά στα δεδομένα εκπαίδευσης αλλά αποτυγχάνει στα νέα δεδομένα;
+  \begin{choices}
+    \correctchoice{Υπερπροσαρμογή (overfitting)}\scoring{10}
+    \wrongchoice{Υποπροσαρμογή (underfitting)}\scoring{0}
+    \wrongchoice{Κανονικοποίηση}\scoring{0}
+    \wrongchoice{Ενίσχυση}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%11
+\begin{question}{11}
+Ποια είναι η λειτουργία της συνάρτησης κόστους (cost function) σε ένα μοντέλο μηχανικής μάθησης;
+    \begin{choices}
+    \correctchoice{Μετράει τη διαφορά μεταξύ προβλεπόμενων και πραγματικών τιμών}\scoring{10}
+    \wrongchoice{Επιταχύνει τη διαδικασία εκπαίδευσης}\scoring{5}
+    \wrongchoice{Κανονικοποιεί τα δεδομένα}\scoring{0}
+    \wrongchoice{Αυξάνει το learning rate}\scoring{0}
+   \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%12
+\begin{question}{12}    
+Ποια από τις παρακάτω τεχνικές χρησιμοποιείται για την επιλογή χαρακτηριστικών (feature selection);
+  \begin{choices}
+    \correctchoice{Αλγόριθμος αναδρομικής εξάλειψης χαρακτηριστικών (RFE)}\scoring{10}
+    \wrongchoice{Gradient descent}\scoring{5}
+    \wrongchoice{Random initialization}\scoring{0}
+    \wrongchoice{Batch normalization}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%13
+\begin{question}{13}    
+Ποια είναι η βασική διαφορά μεταξύ classification και regression;
+  \begin{choices}
+    \correctchoice{Η classification προβλέπει κατηγορίες, ενώ η regression προβλέπει συνεχείς τιμές}\scoring{10}
+    \wrongchoice{Η regression χρησιμοποιεί μόνο νευρωνικά δίκτυα}\scoring{0}
+    \wrongchoice{Η classification απαιτεί περισσότερα δεδομένα}\scoring{0}
+    \wrongchoice{Η regression δεν χρησιμοποιεί ετικέτες}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%14
+\begin{question}{14}    
+Ποια από τις παρακάτω μεθόδους χρησιμοποιείται για τη μείωση του overfitting;
+  \begin{choices}
+    \correctchoice{Regularization (L1 ή L2)}\scoring{10}
+    \wrongchoice{Αύξηση του αριθμού των παραμέτρων}\scoring{0}
+    \wrongchoice{Χρήση μικρότερου συνόλου εκπαίδευσης}\scoring{0}
+    \wrongchoice{Αφαίρεση dropout}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{ai}{
+%15
+\begin{question}{15}    
+Ποια είναι η κύρια λειτουργία ενός αλγορίθμου backpropagation;
+  \begin{choices}
+    \correctchoice{Υπολογίζει τα σφάλματα και ενημερώνει τα βάρη σε ένα νευρωνικό δίκτυο}\scoring{10}
+    \wrongchoice{Επιλέγει τα χαρακτηριστικά εισόδου}\scoring{0}    
+    \wrongchoice{Εκτελεί ομαδοποίηση δεδομένων}\scoring{0}
+    \wrongchoice{Κανονικοποιεί τα δεδομένα εισόδου}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\end{document}

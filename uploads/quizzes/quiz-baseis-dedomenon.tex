@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[greek,english]{babel}
+\usepackage{enumitem}
+
+\begin{document}
+
+\element{sql}{
+%1
+\begin{question}{1}
+Πώς μπορώ να αλλάξω ένα πεδίο από υποχρεωτικό σε μη υποχρεωτικό;
+  \begin{choices}
+    \correctchoice{Με χρήση της alter table}\scoring{10}
+    \wrongchoice{Με χρήση της modify table}\scoring{0}
+    \wrongchoice{Με χρήση της update column}\scoring{0}
+    \wrongchoice{Διαγράφω και ξαναφτιάχνω σωστά τον πίνακα}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+
+\element{relationalalg}{
+%2a
+\begin{question}{2a}    
+   Όταν μια εσωτερική συνένωση δύο πινάκων δεν εντοπίσει γραμμές που ταιριάζουν, τι μπορούμε να δοκιμάσουμε για να φέρουμε όλες τις γραμμές κάθε πίνακα;
+  \begin{choiceshoriz}
+    \correctchoice{full outer join}\scoring{10}
+    \wrongchoice{inner join}\scoring{0}
+    \wrongchoice{outer join}\scoring{5}
+    \wrongchoice{right outer join}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}\element{relationalalg}{
+
+}\element{relationalalg}{
+%2b
+\begin{question}{2b}    
+   Ποια συνένωση δύο πινάκων εντοπίζει μόνο γραμμές που ταιριάζουν μεταξύ των πινάκων;
+  \begin{choiceshoriz}
+    \correctchoice{natural join}\scoring{10}
+    \wrongchoice{left outer join}\scoring{0}  
+    \wrongchoice{right outer join}\scoring{0}
+    \wrongchoice{join}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{relationalalgebra}{
+%3
+\begin{question}{3}    
+   Ποια πράξη της σχεσιακής άλγεβρας επιλέγει τις πλειάδες που υπάρχουν μόνο στο πρώτο από τα δύο σύνολα αποτελεσμάτων;
+  \begin{choiceshoriz}
+    \correctchoice{Αφαίρεση}\scoring{10}
+    \wrongchoice{Ένωση}\scoring{0}
+    \wrongchoice{Union}\scoring{0}
+    \wrongchoice{Τομή}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{relationalalgebra}{
+%4
+\begin{question}{4}    
+   Με ποιο τρόπο είναι σωστό να συνδυάσουμε δεδομένα από δύο πίνακες R1(b,e), R2(a,c,d);
+  \begin{choiceshoriz}
+    \correctchoice{Με cartesian product.}\scoring{10}
+    \wrongchoice{Με join στο c.}\scoring{0}
+    \wrongchoice{Με intersection.}\scoring{0}
+    \wrongchoice{Με φωλιασμένα ερωτήματα.}\scoring{5}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{attributes}{
+%5a
+\begin{question}{5a}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα σύνθετο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Το αναλύουμε σε απλά γνωρίσματα και προσθέτουμε στη σχέση Α τις αντίστοιχες στήλες.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το σύνθετο γνώρισμα ως στήλη.}\scoring{0}   
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Object.}\scoring{0}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{attributes}{
+%5b
+\begin{question}{5b}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα απλό μονότιμο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Προσθέτουμε μια στήλη στο σχετικό πίνακα.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με τόσες στήλες όσες αντιστοιχούν στο γνώρισμα.}\scoring{0}   
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το μονότιμο γνώρισμα ως στήλη.}\scoring{0}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{attributes}{
+%5c
+\begin{question}{5c}    
+  Τι κάνουμε αν σε μια οντότητα Α έχει ένα σύνθετο πλειότιμο γνώρισμα;
+  \begin{choices}
+    \correctchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και προσθέτουμε στον πίνακα τόσες στήλες όσες αντιστοιχούν στο σύνθετο γνώρισμα.}\scoring{10}
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με τόσες στήλες όσες αντιστοιχούν στο γνώρισμα.}\scoring{0}   
+    \wrongchoice{Φτιάχνουμε νέο πίνακα με ξένο κλειδί προς το πρωτεύον κλειδί της Α και το σύνθετο γνώρισμα ως στήλη.}\scoring{5}
+    \wrongchoice{Προσθέτουμε ένα γνώρισμα τύπου Varchar και αποθηκεύουμε τα πάντα ως text.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{entityrelationshipinherit}{
+%6a
+\begin{question}{6a}    
+  Πώς αποτυπώνουμε μια ολική εξειδίκευση της οντότητας Εργαζόμενος σε Έμμισθο και Ωρομίσθιο, όταν η μόνη τους διαφορά είναι ο μισθός ο οποίος στη μία περίπτωση είναι με το μήνα και στην άλλη με την ώρα;
+  \begin{choices}
+    \correctchoice{Με μια σχέση Εργαζόμενος και 2 επιπλέον στήλες <Μισθός, ΤύποςΜισθού>.}\scoring{10} 
+    \wrongchoice{Με δύο σχέσεις για Έμμισθο και Ωρομίσθιο αντίστοιχα. Η σχέση Έμμισθος θα έχει στήλες <ΕργID,Μισθός>.}\scoring{0}     
+    \wrongchoice{Με τρεις σχέσεις. Μία για κάθε οντότητα.}\scoring{5}
+    \wrongchoice{Με μια σχέση Εργαζόμενος για όλους τους Έμμισθους και μια επιπλέον για τους Ωρομίσθιους με στήλες <ΕργID,Μισθός>.}\scoring{0} 
+  \end{choices}
+\end{question}
+}
+
+\element{entityrelationshipinherit}{
+%6b
+\begin{question}{6b}    
+  Πώς αποτυπώνουμε μια μερική εξειδίκευση της οντότητας Εργαζόμενος σε Τεχνικό και Μηχανικό, όταν οι Τεχνικοί έχουν Βαθμό ενώ οι Μηχανικοί Ειδικότητα;
+  \begin{choices}
+    \correctchoice{Με τρεις σχέσεις. Μία για κάθε οντότητα. Ο Εργαζόμενος με τα πεδία του, οι Τεχνικός,Μηχανικός με ένα ξένο κλειδί ΕργID και το επιπλέον γνώρισμα που τους αντιστοιχεί. }\scoring{10} 
+    \wrongchoice{Με μια σχέση Εργαζόμενος και 2 επιπλέον στήλες <Τεχνικός, Μηχανικός>.}\scoring{5}    
+    \wrongchoice{Με δύο πίνακες, έναν για τους τεχνικούς και έναν για τους μηχανικούς με όλα τα γνωρίσματα του εργαζόμενου ο καθένας και το επιπλέον γνώρισμα αντίστοιχα.}\scoring{0}
+    \wrongchoice{Με τον Εργαζόμενο και έναν δεύτερο πίνακα Ειδικευμένοι με όλες τις στήλες και 2 επιπλέον.}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{basics}{
+%7
+\begin{question}{7}    
+  Ο όρος ...... χρησιμοποιείται για να αναφερθούμε σε μια στήλη ενός πίνακα που οι τιμές της αναφέρονται σε στήλη κάποιου άλλου πίνακα.
+  \begin{choiceshoriz}
+    \correctchoice{ξένο κλειδί}\scoring{10}   
+    \wrongchoice{πλειάδα}\scoring{0}
+    \wrongchoice{πρωτεύον κλειδί}\scoring{5}
+    \wrongchoice{περιορισμός}\scoring{0}
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{basics}{
+%8
+\begin{question}{8}    
+Οι πλειάδες μιας σχέσης έχουν ...... σειρά.
+  \begin{choiceshoriz}
+    \correctchoice{οποιαδήποτε}\scoring{10} 
+    \wrongchoice{πάντοτε την ίδια}\scoring{0}      
+    \wrongchoice{ταξινομημένη}\scoring{0} 
+    \wrongchoice{ορισμένη από το χρήστη}\scoring{5} 
+  \end{choiceshoriz}
+\end{question}
+}
+
+\element{sql}{
+%9
+\begin{question}{9}
+  Τι επιστρέφει το ακόλουθο ερώτημα: SELECT * FROM EMPLOYEE WHERE SALARY $<$ SOME (1000,1300,1500);
+ \begin{choices}
+   \correctchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1500.}\scoring{10}
+   \wrongchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1000.}\scoring{0}
+   \wrongchoice{Τους υπαλλήλους που έχουν μισθό κάτω από 1000,1300 ή 1500.}\scoring{5}
+   \wrongchoice{Τους υπαλλήλους που έχουν μισθό πάνω από 1500.}\scoring{0}
+ \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%10
+\begin{question}{10}
+Πώς μπορώ να αλλάξω ένα πεδίο από υποχρεωτικό σε μη υποχρεωτικό;
+  \begin{choices}
+    \correctchoice{Με χρήση της alter table}\scoring{10}
+    \wrongchoice{Με χρήση της modify table}\scoring{0}
+    \wrongchoice{Με χρήση της update column}\scoring{0}
+    \wrongchoice{Διαγράφω και ξαναφτιάχνω σωστά τον πίνακα}\scoring{5}
+  \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%11
+\begin{question}{11}
+   Τι κάνω αν θέλω να βρω ποιοι υπάλληλοι έχουν προσληφθεί πριν το διευθυντή του τμήματος στο οποίο εργάζονται;
+    \begin{choices}
+    \correctchoice{Κάνω join τον employee στο deptnumber με ένα view που επιστρέφει την ημερομηνία πρόσληψης του διευθυντή σε κάθε τμήμα.}\scoring{10}
+    \wrongchoice{Χρησιμοποιώ nested select για να βρώ την ημερομηνία πρόσληψης του διευθυντή σε κάθε τμήμα.}\scoring{5}
+    \wrongchoice{Ταξινομώ τον πίνακα με αύξουσα σειρά ημερομηνίας πρόσληψης και επιστρέφω τις πρώτες μισές εγγραφές}\scoring{0}
+    \wrongchoice{Ταξινομώ τον πίνακα με αύξουσα σειρά ημερομηνίας πρόσληψης και επιστρέφω τις δεύτερες μισές εγγραφές}\scoring{0}
+   \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%12
+\begin{question}{12}    
+   Πώς μπορώ να ταξινομήσω με φθίνουσα σειρά μισθού τους υπαλλήλους και ταυτόχρονα να εξασφαλίσω ότι θα εμφανίσω μόνο όσους έχουν μισθό;
+  \begin{choices}
+    \correctchoice{...WHERE salary is not null ORDER BY salary DESC;}\scoring{10}
+    \wrongchoice{...WHERE salary is not null ORDER BY salary;}\scoring{5}
+    \wrongchoice{...WHERE salary $>$ 0 SORT BY salary DESC;}\scoring{0}
+    \wrongchoice{...HAVING salary ORDER BY salary DESC;}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%13
+\begin{question}{13}    
+   Ποιο λάθος έχει το παρακάτω ερώτημα; SELECT sum(salary),lastname FROM EMPLOYEE GROUP BY ssn,lastname;
+  \begin{choices}
+    \correctchoice{Κανένα.}\scoring{10}
+    \wrongchoice{Το GROUP BY πρέπει να γίνει στο lastname μόνο}\scoring{5} 
+    \wrongchoice{To sum(salary) δεν μπορεί να εμφανίζεται στο SELECT}\scoring{0}
+    \wrongchoice{Πρέπει να χρησιμοποιήσω count(salary) στο SELECT}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%14
+\begin{question}{14}    
+   Ποιο λάθος έχει το παρακάτω ερώτημα; SELECT * FROM EMPLOYEE GROUP BY DEPARTMENT HAVING SALARY$>$MAX(SALARY);
+  \begin{choices}
+    \correctchoice{To MAX(SALARY) δεν μπορεί να εφαρμοστεί στο σήμειο αυτό}\scoring{10}
+    \wrongchoice{Θέλει WHERE αντί για HAVING}\scoring{0}
+    \wrongchoice{To HAVING θέλει sum(SALARY)}\scoring{0}
+    \wrongchoice{Πρέπει να χρησιμοποιήσω count(*) στο SELECT}\scoring{0}
+  \end{choices}
+\end{question}
+}
+
+\element{sql}{
+%15
+\begin{question}{15}    
+   Πώς διαγράφουμε όλα τα περιεχόμενα του πίνακα EMPLOYEE;
+  \begin{choices}
+    \correctchoice{DELETE FROM EMPLOYEE;}\scoring{10}
+    \wrongchoice{DELETE * FROM EMPLOYEE;}\scoring{0}    
+    \wrongchoice{FORMAT EMPLOYEE;}\scoring{0}
+    \wrongchoice{DROP TABLE EMPLOYEE;}\scoring{5}
+  \end{choices}
+\end{question}
+}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="helpers/results.js"></script>
+    <script src="helpers/shuffle.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/quiz.css">
+    <style>
+        #next-button:disabled { opacity: 0.5; cursor: not-allowed; }
+        #quiz-list li { display: none; }
+    </style>
+    <script>
+        function logout() {
+            window.location.href = "logout.php";
+        }
+    </script>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <?php
+        session_start();
+        if (isset($_GET['selectedOption'])) {
+            $selectedOption = $_GET['selectedOption'];
+            echo "<div id='course-id' style='display: none !important;'>$selectedOption</div>";
+        } else {
+            echo "<p>No option selected.</p>";
+        }
+        if (isset($_SESSION['student_id'])) {
+            echo "<div id='student-id' style='display: none !important;'>{$_SESSION['student_id']}</div>";
+        } else {
+            echo "<div id='student-id' style='display: none !important;'>20948</div>";
+        }
+    ?>
+    <div id="timer">Υπολειπόμενος χρόνος: <span id="time-left"></span></div>
+    <ol id="quiz-list" class="quiz-questions__wrapper"></ol>
+    <div id="next-button-container">
+        <button id="next-button" disabled>Επόμενη Ερώτηση</button>
+    </div>
+    <div id="message-wrapper" class="message-wrapper lightboxContainer hidden">
+        <div id="thank-you-message" class="lightboxContent">
+            <p>Σας ευχαριστούμε που ολοκληρώσατε το κουίζ!</p>
+            <div id="score">Η βαθμολογία σας είναι: <strong></strong></div>
+        </div>
+    </div>
+    <script>
+    $(document).ready(function() {
+        // --- 1. Fetch quiz data
+        var selectedOption = $('#course-id').text().trim();
+        var studentId = $('#student-id').length ? $('#student-id').text().trim() : null;
+        var quizData = null, questionOrder = [], currentQuestion = 0, totalScore = 0, userAnswers = {}, maxAchievableScore = 0;
+        let timerInterval = null, timeLeft = 300;
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        function getMaxAchievableScore(quizData, questionOrder) {
+            let maxScore = 0;
+            for (const key of questionOrder) {
+                const q = quizData[key];
+                for (const cid in q.choices) {
+                    if (q.choices[cid].status === "correct") {
+                        maxScore += parseInt(q.choices[cid].score, 10);
+                        break;
+                    }
+                }
+            }
+            return maxScore;
+        }
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            $('#time-left').text(`${minutes}:${seconds < 10 ? "0" : ""}${seconds}`);
+        }
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    $('#timer').hide();
+                    $('#next-button-container').hide();
+                    $('#quiz-list').hide();
+                    $('#thank-you-message').html(`<p>Ο χρόνος του κουίζ έχει λήξει.</p>`);
+                    $('#message-wrapper').removeClass('hidden');
+                    setTimeout(logout, 10000);
+                }
+            }, 1000);
+            updateTimerDisplay();
+        }
+
+        // --- 2. Render one question at a time
+        function showQuestion(index) {
+            const quizList = $('#quiz-list');
+            quizList.empty();
+            if (index >= questionOrder.length) {
+                finishQuiz();
+                return;
+            }
+            const key = questionOrder[index];
+            const q = quizData[key];
+            const choicesArr = Object.values(q.choices);
+            shuffleArray(choicesArr);
+
+            let output = `<li data-id="${key}" data-score="${q.weight}" style="display: block;">`;
+            output += `<p>${q.text}</p><fieldset class="multiple-choices">`;
+            for (const choice of choicesArr) {
+                output += `<div class="multiple-choice-answer">`;
+                output += `<input type="radio" name="question_${key}" value="${choice.score}" data-cid="${choice.id}">`;
+                output += `<label class="${choice.status}">${choice.text}</label>`;
+                output += `</div>`;
+            }
+            output += `</fieldset></li>`;
+            quizList.html(output);
+
+            $('#next-button').prop('disabled', true);
+            quizList.find('input[type="radio"]').on('change', function() {
+                $('#next-button').prop('disabled', false);
+                userAnswers[key] = parseInt($(this).val(), 10);
+            });
+        }
+
+        // --- 3. Finish quiz, show score, send data to PHP
+        function finishQuiz() {
+            $('#quiz-list').empty();
+            $('#next-button-container').hide();
+            $('#message-wrapper').removeClass('hidden');
+            let percent = maxAchievableScore ? Math.round((totalScore / maxAchievableScore) * 100) : 0;
+            $('#score strong').text(`${percent}%`);
+            $('#score').removeClass('green orange red').addClass(calculateResults(percent));
+            clearInterval(timerInterval);
+
+            // Prepare quiz data for storage
+            let quizResults = {
+                studentId: studentId,
+                courseId: selectedOption,
+                answers: userAnswers,
+                percent: percent,
+                timestamp: new Date().toISOString()
+            };
+
+            // 1. Store full quiz data
+            $.ajax({
+                url: "db_store_quiz.php",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(quizResults),
+                success: function(response) {
+                    // 2. Store summary results
+                    $.ajax({
+                        url: "db_process_quiz_results.php",
+                        method: "POST",
+                        contentType: "application/json",
+                        data: JSON.stringify({
+                            studentId: quizResults.studentId,
+                            courseId: quizResults.courseId,
+                            percent: quizResults.percent
+                        }),
+                        complete: function() {
+                            setTimeout(logout, 10000);
+                        }
+                    });
+                }
+            });
+        }
+
+        // --- 4. Next button logic
+        $('#next-button').on('click', function() {
+            const key = questionOrder[currentQuestion];
+            if (userAnswers[key] !== undefined) {
+                totalScore += userAnswers[key];
+            }
+            currentQuestion++;
+            if (currentQuestion < questionOrder.length) {
+                showQuestion(currentQuestion);
+            } else {
+                finishQuiz();
+            }
+        });
+
+        // --- 5. Fetch quiz data and start
+        $.get('execute_query.php?selectedOption=' + encodeURIComponent(selectedOption), function(data) {
+            if (data.success) {
+                quizData = data.questions;
+                questionOrder = Object.keys(quizData);
+                maxAchievableScore = getMaxAchievableScore(quizData, questionOrder);
+                showQuestion(0);
+                startTimer();
+            } else {
+                $('#quiz-list').html('<li>' + (data.message || 'Error loading quiz.') + '</li>');
+                $('#next-button').hide();
+            }
+        }, 'json');
+    });
+    </script>
+</body>
+</html>

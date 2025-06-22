@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Σελίδα Εισόδου</title>
+    <script src="login.js" defer></script>
+    <link rel="stylesheet" type="text/css" href="style/user.css">
+</head>
+<body id="admin">
+    <div class="main" id="login">
+        <div class="container-wrapper">
+            <h2>Είσοδος στο Διαχειριστικό</h2>
+            <form id="loginForm" action="login.php" method="post">
+                <label for="username">Όνομα χρήστη:</label>
+                <input type="text" id="username" name="username" required><br>
+                
+                <label for="password">Κωδικός πρόσβασης:</label>
+                <input type="password" id="password" name="password" required><br>
+                
+                <input type="submit" value="Είσοδος">
+            </form>
+            <p id="message"></p>
+        </div>
+    </div>
+    
+</body>
+</html>

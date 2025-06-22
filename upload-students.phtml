@@ -1,0 +1,45 @@
+<?php
+session_start();
+// Try to get username from GET, then SESSION, fallback to Admin
+$username = isset($_GET['username']) ? $_GET['username'] : (isset($_SESSION['username']) ? $_SESSION['username'] : 'Admin');
+$role = ($username === 'Admin') ? 'admin' : 'student';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Μεταφόρτωση Αρχείου Κειμένου</title>
+    <script src="helpers/goBack.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/forms.css">
+</head>
+<body>
+    <!-- JS variables for goBack.js -->
+    <script>
+        var currentUsername = "<?php echo htmlspecialchars($username); ?>";
+        var currentRole = "<?php echo htmlspecialchars($role); ?>";
+        // For debugging:
+        // console.log('USERNAME:', currentUsername);
+        // console.log('ROLE:', currentRole);
+    </script>
+    <div class="main" id="upload">
+        <button id="back" onclick="goBack()">Επιστροφή</button>
+        <?php
+            if (isset($_GET['selectedOption'])) {
+                $selectedOption = $_GET['selectedOption'];
+                // echo "<p>You selected: $selectedOption</p>";
+            } else {
+                echo "<p>No option selected.</p>";
+            }
+        ?>
+        <div class="container-wrapper">
+            <form action="upload-students.php" method="POST" enctype="multipart/form-data">
+                <!-- Include a hidden input field to send $selectedOption to upload-students.php -->
+                <input type="hidden" name="selectedOption" value="<?php echo $selectedOption; ?>">
+
+                Επιλέξτε αρχείο με λίστα φοιτητών για εξέταση:
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <input type="submit" value="Μεταφόρτωση Αρχείου" name="submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

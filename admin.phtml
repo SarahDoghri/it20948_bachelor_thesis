@@ -1,0 +1,150 @@
+<?php
+session_start();
+// echo "Session ID: " . session_id();
+/*** από εδώ ---------> */
+
+// Prevent browser from caching this page
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
+
+// Check if user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: index.html");
+    exit();
+}
+/*** <-------- ως εδώ */
+
+// Check if the user is authenticated
+if (!isset($_SESSION["username"])) {
+    header("Location!?: index.html"); // Redirect to login page
+    exit();
+}
+
+// The rest of your logged-in page content goes here
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Πίνακας Διαχειριστή</title>
+    <script>
+        // Get the username from the URL query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('username');
+
+        // Function to handle logout
+        function logout() {
+            window.location.href = "logout.php";
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted || (window.performance && window.performance.getEntriesByType('navigation')[0].type === 'back_forward')) {
+                // Reload the page if loaded from cache (back/forward navigation)
+                window.location.reload();
+            }
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="style/user.css">
+</head>
+<body>
+    <div class="main" id="myaccount">
+        <div class="container-wrapper">
+            <!-- <h2 id="welcomeMessage">Welcome, User!</h2> -->
+
+            <h2>Καλωσήρθες, <?php echo $_SESSION["username"]; ?>!</h2>
+            <div class="content">
+                <p style="text-align: center;">Εδώ παρουσιάζονται τα μαθήματα που διαχειρίζεται κάθε διαχειριστής, με δυνατότητα πλήρους διαχείρισης και ενημέρωσης.</p>
+                <form id="selectionFormUpload" class="selectionForm">
+                    <p>Μεταφόρτωση Τράπεζας Ερωτήσεων</p>
+                    <label for="dropdown">Επιλογή μαθήματος:</label>
+                    <select class="dropdown" name="selectedOption">
+                        <option value="ΥΠ16">Βάσεις Δεδομένων</option>
+                        <option value="ΥΠ23">Τεχνητή Νοημοσύνη</option>
+                    </select>
+                    <button type="button" onclick="redirectToPage(event)">Μεταφόρτωση νέου κουίζ</button>
+                </form>
+
+                <form id="selectionFormStudents" class="selectionForm">
+                    <p>Μεταφόρτωση λίστας φοιτητών για εξέταση</p>
+                    <label for="dropdown">Επιλογή μαθήματος:</label>
+                    <select class="dropdown" name="selectedOption">
+                        <option value="ΥΠ16">Βάσεις Δεδομένων</option>
+                        <option value="ΥΠ23">Τεχνητή Νοημοσύνη</option>
+                    </select>
+                    <button type="button" onclick="redirectToPage(event)">Μεταφόρτωση φοιτητών</button>
+                </form>
+
+                <form id="selectionFormCourses" class="selectionForm">
+                    <p>Λίστα όλων των μαθημάτων</p>
+                    <label  style="display: none;" for="dropdown">Επιλογή μαθήματος:</label>
+                    <select style="display: none;" class="dropdown" name="selectedOption">
+                        <option value="all">All courses</option>
+                    </select>
+                    <button type="button" onclick="redirectToPage(event)">Επεξεργασία</button>
+                </form>
+
+                <form id="selectionFormStudentResults" class="selectionForm">
+                    <p>Λίστα αποτελεσμάτων quiz</p>
+                    <label for="dropdown">Επιλογή μαθήματος:</label>
+                    <select class="dropdown" name="selectedOption">
+                        <option value="ΥΠ16">Βάσεις Δεδομένων</option>
+                        <option value="ΥΠ23">Τεχνητή Νοημοσύνη</option>
+                    </select>
+                    <button type="button" onclick="redirectToPage(event)">Επεξεργασία</button>
+                </form>
+            
+                <script>
+                    function redirectToPage(e) {
+                        // Access the event object
+                        const event = e || window.event;
+
+                        // Access the target element
+                        const clickedElement = event.target || event.srcElement;
+                        let dropdown = clickedElement.closest('.selectionForm').querySelector('.dropdown');
+                        let selectedValue = dropdown.value;
+                        let redirectPage = '';
+                        let form = dropdown.closest('.selectionForm').getAttribute('id');
+                        if (form == 'selectionFormUpload') {
+                            redirectPage = 'upload.phtml?selectedOption=' + selectedValue + '&' + document.querySelector(`option[value="${selectedValue}"]`).innerText;
+                        } else if (form == 'selectionFormStudents') {
+                            redirectPage = 'upload-students.phtml?selectedOption=' + selectedValue + '&' + document.querySelector(`option[value="${selectedValue}"]`).innerText;
+                        } else if (form == 'selectionFormCourses') {
+                            redirectPage = 'courses.phtml?selectedOption=' + selectedValue + '&' + document.querySelector(`option[value="${selectedValue}"]`).innerText;
+                        } else if (form == 'selectionFormStudentResults') {
+                            redirectPage = 'results.phtml?selectedOption=' + selectedValue + '&' + document.querySelector(`option[value="${selectedValue}"]`).innerText;
+                        }
+                        setTimeout(() => {
+                            window.location.href = redirectPage;
+                        }, 500);
+                        
+                    }
+                </script>
+            </div>
+            
+            <button id="logout" onclick="logout()">Έξοδος</button>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+<script>
+// Example using jQuery
+jQuery.ajax({
+    type: "GET",
+    url: "get_session_data.php",
+    success: function(response) {
+        // Use the response (session data) in JavaScript
+    }
+});
+
+
+</script>

@@ -1,0 +1,37 @@
+<?php
+session_start();
+// Try to get username from GET, then SESSION, fallback to Admin
+$username = isset($_GET['username']) ? $_GET['username'] : (isset($_SESSION['username']) ? $_SESSION['username'] : 'Admin');
+$role = ($username === 'Admin') ? 'admin' : 'student';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Μεταφόρτωση Αρχείου LaTeX</title>
+
+    <script src="helpers/goBack.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/forms.css">
+</head>
+<body>
+    <!-- JS variables for goBack.js -->
+    <script>
+        var currentUsername = "<?php echo htmlspecialchars($username); ?>";
+        var currentRole = "<?php echo htmlspecialchars($role); ?>";
+        // For debugging:
+        // console.log('USERNAME:', currentUsername);
+        // console.log('ROLE:', currentRole);
+    </script>
+    <div class="main" id="upload">
+        <button id="back" onclick="goBack()">Επιστροφή</button>
+        <div class="container-wrapper">
+            <form action="validate_latex.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="latex_file" id="latex_file">
+                <input type="submit" value="Μεταφόρτωση και Επικύρωση">
+            </form>
+        </div>
+    </div>
+   
+    
+</body>
+</html>
